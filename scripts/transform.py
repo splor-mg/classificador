@@ -1,15 +1,16 @@
 from pathlib import Path
 import yaml
-from sqlalchemy import select, update, and_
+from sqlalchemy import create_engine, text
 from datetime import datetime
 import pytz
-from scripts.db import metadata, engine
 import logging
 
 logger = logging.getLogger(__name__)
 
 def transform_resource(resource_name: str):
-    table = metadata.tables[resource_name]
+    
+    engine = create_engine('sqlite:///data-raw/db.sqlite')
+    
     path = Path(f'data-raw/{resource_name}')
     
     for file in path.glob('*.yaml'):
@@ -23,8 +24,8 @@ def transform_resource(resource_name: str):
 
             with engine.begin() as connection:
                     # Fetch existing row
-                    stmt = select(table).where((table.c.code == item['code']) & (table.c.seq == item['seq']))
-                    existing_row = connection.execute(stmt).fetchone()
+                    stmt = text(f'SELECT * FROM {resource_name} WHERE code = :code AND seq = :seq')
+                    existing_row = connection.execute(stmt, {"code": item['code'], "seq": item['seq']}).fetchone()
 
                     if existing_row is not None:
                         # Check if relevant columns have changed
@@ -35,31 +36,46 @@ def transform_resource(resource_name: str):
                         existing_row.valid_to != item['valid_to']:
                             # If so, perform update and set updated_at to current time
                             now = datetime.now(pytz.utc)
-                            stmt = (
-                                update(table).
-                                where(and_(table.c.code == item['code'], table.c.seq == item['seq'])).
-                                values(
-                                    name=item['name'],
-                                    title=item['title'],
-                                    description=item['description'],
-                                    valid_from=item['valid_from'],
-                                    valid_to=item['valid_to'],
-                                    updated_at=now
-                                )
+                            stmt = text(
+                                f"""
+                                UPDATE {resource_name}
+                                SET name=:name, title=:title, description=:description,
+                                valid_from=:valid_from, valid_to=:valid_to, updated_at=:updated_at
+                                WHERE code=:code AND seq=:seq
+                                """
                             )
-                            connection.execute(stmt)
+
+                            connection.execute(
+                                stmt,
+                                {
+                                    "name": item['name'],
+                                    "title": item['title'],
+                                    "description": item['description'],
+                                    "valid_from": item['valid_from'],
+                                    "valid_to": item['valid_to'],
+                                    "updated_at": now,
+                                    "code": item['code'],
+                                    "seq": item['seq']
+                                }
+                            )
                     else:
                         # If row does not exist, perform insert
-                        stmt = (
-                            table.insert().
-                            values(
-                                code=item['code'],
-                                seq=item['seq'],
-                                name=item['name'],
-                                title=item['title'],
-                                description=item['description'],
-                                valid_from=item['valid_from'],
-                                valid_to=item['valid_to'],
-                            )
+                        stmt = text(
+                            f"""
+                            INSERT INTO {resource_name} (code, seq, name, title, description, valid_from, valid_to)
+                            VALUES (:code, :seq, :name, :title, :description, :valid_from, :valid_to)
+                            """
                         )
-                        connection.execute(stmt)
+
+                        connection.execute(
+                            stmt,
+                            {
+                                "code": item['code'],
+                                "seq": item['seq'],
+                                "name": item['name'],
+                                "title": item['title'],
+                                "description": item['description'],
+                                "valid_from": item['valid_from'],
+                                "valid_to": item['valid_to']
+                            }
+                        )
