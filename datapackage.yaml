@@ -2,6 +2,8 @@ name: classificador
 resources:
   - name: uo
     title: Unidade Orçamentária
+    description: ''
+    notes: ''
     path: sqlite:///data-raw/uo/db.sqlite
     dialect:
       sql:

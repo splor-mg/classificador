@@ -5,6 +5,8 @@
     {
       "name": "uo",
       "type": "table",
+      "title": "Unidade Orçamentária",
+      "description": "",
       "profile": "tabular-data-resource",
       "path": "uo.csv",
       "scheme": "file",
@@ -78,11 +80,14 @@
             "source": "updated_at"
           }
         ]
-      }
+      },
+      "notes": ""
     },
     {
       "name": "fonte",
       "type": "table",
+      "title": "Fonte de Recurso",
+      "description": "A classificação por fonte de recursos (FR) tem como objetivo agrupar receitas que possuam as mesmas normas de aplicação na despesa.\n\nComo mecanismo integrador entre a receita e a despesa, o código de FR exerce um duplo papel no processo orçamentário. \nPara a receita orçamentária, esse código tem a finalidade de indicar a destinação de recursos para a realização de determinadas despesas orçamentárias. \nPara a despesa orçamentária, identifica a origem dos recursos que estão sendo utilizados.\n",
       "profile": "tabular-data-resource",
       "path": "fonte.csv",
       "scheme": "file",
@@ -156,8 +161,12 @@
             "source": "updated_at"
           }
         ]
-      }
+      },
+      "notes": [
+        "Vide [cap. 5](https://sisweb.tesouro.gov.br/apex/f?p=2501:9::::9:P9_ID_PUBLICACAO:41943#page=145) do [Manual de Contabilidade Aplicada ao Setor Público (MCASP)](https://www.tesourotransparente.gov.br/publicacoes/manual-de-contabilidade-aplicada-ao-setor-publico-mcasp/2021/26) para uma introdução conceitual a fontes de recurso.",
+        "A [Portaria Conjunta STN SOF nº 20/2021](https://www.in.gov.br/en/web/dou/-/portaria-conjunta-stn/sof-n-20-de-23-de-fevereiro-de-2021-304861747) estabeleceu, em seu artigo 3º, a padronização, das fontes de recursos, a ser observada no âmbito da União, dos Estados, do Distrito Federal e dos Municípios, que até então dispunham de estruturas próprias e desarmonizadas.\n\nPor sua vez, a [Portaria STN n° 710/2021](https://www.in.gov.br/en/web/dou/-/portaria-n-710-de-25-de-fevereiro-de-2021-305389863) e suas [atualizações](https://www.gov.br/tesouronacional/pt-br/contabilidade-e-custos/federacao/fonte-ou-destinacao-de-recursos) são responsáveis por estabelecer a classificação, das fontes de recursos, a ser utilizada por Estados, Distrito Federal e Municípios.\n"
+      ]
     }
   ],
-  "updated_at": "2023-07-06T18:12:59"
+  "updated_at": "2023-07-06T18:15:58"
 }

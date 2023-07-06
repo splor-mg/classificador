@@ -12,6 +12,9 @@ def build_package(output_path: Path, descriptor: str = 'datapackage.yaml'):
             {
             "profile": "tabular-data-resource",
             "name": resource_name,
+            "title": package.get_resource(resource_name).title,
+            "description": package.get_resource(resource_name).description,
+            "notes": package.get_resource(resource_name).custom.get('notes'),
             "path": f'data/{resource_name}.csv',
             "format": "csv",
             "encoding": "utf-8",
