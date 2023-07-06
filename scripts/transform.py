@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 def transform_resource(resource_name: str):
     
-    engine = create_engine('sqlite:///data-raw/db.sqlite')
+    engine = create_engine(f'sqlite:///data-raw/{resource_name}/db.sqlite')
     
     path = Path(f'data-raw/{resource_name}')
     

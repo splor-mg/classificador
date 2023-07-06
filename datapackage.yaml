@@ -1,12 +1,12 @@
 resources:
   - name: uo
-    path: sqlite:///data-raw/db.sqlite
+    path: sqlite:///data-raw/uo/db.sqlite
     dialect:
       sql:
         table: uo
     schema: schema.yaml
   - name: fonte
-    path: sqlite:///data-raw/db.sqlite
+    path: sqlite:///data-raw/fonte/db.sqlite
     dialect:
       sql:
         table: fonte
