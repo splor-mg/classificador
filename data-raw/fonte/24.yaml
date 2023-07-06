@@ -1,0 +1,20 @@
+- code: 24
+  seq: 1
+  name: CONVENIOS, ACORDOS E AJUSTES
+  valid_from: 2002-00
+  valid_to: 2011-12
+- code: 24
+  seq: 2
+  name: CONVENIOS, ACORDOS E AJUSTES PROVENIENTES DA UNIAO E SUAS ENTIDADES
+  valid_from: 2012-00
+  valid_to: 2022-12
+- code: 24
+  seq: 3
+  name: CONVENIOS COM A UNIAO E SUAS ENTIDADES
+  valid_from: 2013-00
+  valid_to: 2018-12
+- code: 24
+  seq: 4
+  name: CONVENIOS COM A UNIAO E SUAS ENTIDADES - EXCETO EMENDAS INDIVIDUAIS E DE BANCADA
+  valid_from: 2023-00
+  valid_to: 9999-12

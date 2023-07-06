@@ -1,0 +1,13 @@
+resources:
+  - name: uo
+    path: sqlite:///data-raw/db.sqlite
+    dialect:
+      sql:
+        table: uo
+    schema: schema.yaml
+  - name: fonte
+    path: sqlite:///data-raw/db.sqlite
+    dialect:
+      sql:
+        table: fonte
+    schema: schema.yaml
