@@ -1,35 +1,45 @@
 fields:
   - name: id
+    title: Identificador
     type: integer
   - name: code
+    title: Código
     type: integer
     constraints:
       required: true
   - name: seq
+    title: Sequencial
     type: integer
     constraints:
       required: true
   - name: name
+    title: Nome
     type: string
   - name: title
+    title: Título
     type: string
   - name: description
+    title: Descrição
     type: string
   - name: valid_from
+    title: Início da vigência
     type: string
     contraints:
       required: true
       pattern: '\d{4}-\d{2}'
   - name: valid_to
+    title: Encerramento da vigência
     type: string
     contraints:
       required: true
       pattern: '\d{4}-\d{2}'
   - name: created_at
+    title: Data de criação
     type: datetime
     constraints:
       required: true
   - name: updated_at
+    title: Data de atualização
     type: datetime
     constraints:
       required: true

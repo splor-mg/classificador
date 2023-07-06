@@ -1,0 +1,163 @@
+{
+  "name": "classificador",
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "uo",
+      "type": "table",
+      "profile": "tabular-data-resource",
+      "path": "uo.csv",
+      "scheme": "file",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:964ae5e1fb375391e648364cc31dea1cd5f6ff53c06084801cd322cf0deb9a37",
+      "bytes": 603,
+      "fields": 10,
+      "rows": 5,
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "title": "Identificador",
+            "source": "id"
+          },
+          {
+            "name": "code",
+            "type": "integer",
+            "title": "Código",
+            "source": "code"
+          },
+          {
+            "name": "seq",
+            "type": "integer",
+            "title": "Sequencial",
+            "source": "seq"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": "Nome",
+            "source": "name"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "title": "Título",
+            "source": "title"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "title": "Descrição",
+            "source": "description"
+          },
+          {
+            "name": "valid_from",
+            "type": "string",
+            "title": "Início da vigência",
+            "source": "valid_from"
+          },
+          {
+            "name": "valid_to",
+            "type": "string",
+            "title": "Encerramento da vigência",
+            "source": "valid_to"
+          },
+          {
+            "name": "created_at",
+            "type": "datetime",
+            "title": "Data de criação",
+            "source": "created_at"
+          },
+          {
+            "name": "updated_at",
+            "type": "datetime",
+            "title": "Data de atualização",
+            "source": "updated_at"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fonte",
+      "type": "table",
+      "profile": "tabular-data-resource",
+      "path": "fonte.csv",
+      "scheme": "file",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:e7a583c49daa71d7beda0a4eb3d23a7600232e8b90ee9613aa3063ebdd5a589a",
+      "bytes": 768,
+      "fields": 10,
+      "rows": 6,
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "title": "Identificador",
+            "source": "id"
+          },
+          {
+            "name": "code",
+            "type": "integer",
+            "title": "Código",
+            "source": "code"
+          },
+          {
+            "name": "seq",
+            "type": "integer",
+            "title": "Sequencial",
+            "source": "seq"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": "Nome",
+            "source": "name"
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "title": "Título",
+            "source": "title"
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "title": "Descrição",
+            "source": "description"
+          },
+          {
+            "name": "valid_from",
+            "type": "string",
+            "title": "Início da vigência",
+            "source": "valid_from"
+          },
+          {
+            "name": "valid_to",
+            "type": "string",
+            "title": "Encerramento da vigência",
+            "source": "valid_to"
+          },
+          {
+            "name": "created_at",
+            "type": "datetime",
+            "title": "Data de criação",
+            "source": "created_at"
+          },
+          {
+            "name": "updated_at",
+            "type": "datetime",
+            "title": "Data de atualização",
+            "source": "updated_at"
+          }
+        ]
+      }
+    }
+  ],
+  "updated_at": "2023-07-06T18:12:59"
+}

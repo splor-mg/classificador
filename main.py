@@ -1,5 +1,6 @@
 import typer
 import logging
+from scripts.extract import extract_resource
 from scripts.transform import transform_resource
 from scripts.build import build_package
 
@@ -11,6 +12,7 @@ def callback():
     ETL scripts.
     """
 
+app.command(name="extract")(extract_resource)
 app.command(name="transform")(transform_resource)
 app.command(name="build")(build_package)
 
